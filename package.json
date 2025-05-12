@@ -1,0 +1,34 @@
+{
+  "name": "foodflick",
+  "version": "1.0.0",
+  "description": "This is Foodflick",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test":  "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Gola1998/Foodflick.git"
+  },
+  "keywords": [
+    "react",
+    "js"
+  ],
+  "author": "Gaurav Gola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gola1998/Foodflick/issues"
+  },
+  "homepage": "https://github.com/Gola1998/Foodflick#readme",
+  "devDependencies": {
+    "parcel": "^2.14.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserlist":[
+    "last 2 version"
+  ]
+}
