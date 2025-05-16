@@ -60,3 +60,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.filter {
+    margin: 20px 6px;
+}
+
+button.filter-btn:hover {
+    cursor: pointer;
+}

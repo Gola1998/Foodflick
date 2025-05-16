@@ -18,3 +18,16 @@
 - HTTPS
 - Tree Shaking - remove unused code
 - different dev and prod bundles
+
+
+
+Two Types of Import/Export
+
+- Default Export/Import
+export default component;
+import component from "path";
+
+
+- Named Export/Import
+export const component;
+import {Component} from "path";
