@@ -68,3 +68,20 @@
 button.filter-btn:hover {
     cursor: pointer;
 }
+
+.shimmer-cards{
+    width: 170px;
+    height: 285px;
+    margin: 5px;
+    background-color: #f0f0f0;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login-btn{
+    padding: 5px 10px;
+    cursor: pointer;
+}

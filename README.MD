@@ -1,7 +1,7 @@
-# Food Flick
+# ✅ Food Flick
 
 
-# parcel
+# ✅ parcel
 - Dev Build
 - Local Server
 - HMR = Hot Module Replacement
@@ -21,7 +21,7 @@
 
 
 
-Two Types of Import/Export
+# ✅ Two Types of Import/Export
 
 - Default Export/Import
 export default component;
@@ -31,3 +31,8 @@ import component from "path";
 - Named Export/Import
 export const component;
 import {Component} from "path";
+
+
+# ✅ Two types of routing in web apps
+-Client Side Routing
+-Server Side Routing
