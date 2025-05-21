@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //  ✅ RouterProvider actually provide this routing configuration to our app
 import About from "./components/About";
 import Contact from "./components/Contact";
+import RestaurantMenu from "./components/RestaurantMenu";
 import Error from "./components/Error";
 
 const AppLayout = () => {
@@ -35,6 +36,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <Error />,
