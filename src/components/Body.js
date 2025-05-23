@@ -26,7 +26,6 @@ const Body = () => {
       )?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
 
     setListOfRestaurant(restaurants);
-    console.log("restaurant",restaurants);
     setAllRestaurants(restaurants);
   };
 
@@ -42,34 +41,29 @@ const Body = () => {
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="px-4 py-6 max-w-7xl mx-auto">
-      {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-        {/* Search */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-3/4">
-          <input
-            type="text"
-            className="w-full sm:w-2/3 px-5 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 text-base"
-            placeholder="Search restaurants..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button
-            className="w-full sm:w-auto px-6 py-3 bg-orange-500 text-white rounded-lg text-lg font-semibold hover:bg-orange-600 transition"
-            onClick={() => {
-              const filteredRes = allRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setListOfRestaurant(filteredRes);
-            }}
-          >
-            Search
-          </button>
-        </div>
-
-        {/* Top Rated Button */}
+    <div className="px-4 py-6 max-w-screen-xl mx-auto">
+      {/* Search and Filter - Larger and centered */}
+      <div className="flex flex-wrap justify-center items-center gap-4 mb-8">
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-80 px-5 py-3 border border-gray-300 rounded-md text-base focus:ring-2 focus:ring-orange-400 focus:outline-none"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
         <button
-          className="w-full md:w-auto px-6 py-3 bg-orange-500 text-white text-lg font-semibold rounded-lg hover:bg-orange-600 transition"
+          className="bg-orange-500 text-white px-6 py-3 text-base rounded-md hover:bg-orange-600 transition"
+          onClick={() => {
+            const filteredRes = allRestaurants.filter((res) =>
+              res.info.name.toLowerCase().includes(searchText.toLowerCase())
+            );
+            setListOfRestaurant(filteredRes);
+          }}
+        >
+          Search
+        </button>
+        <button
+          className="bg-orange-500 text-white px-6 py-3 text-sm rounded-md hover:bg-orange-600 transition"
           onClick={() => {
             const filteredList = allRestaurants.filter(
               (res) => res.info.avgRating > 4.5
@@ -81,8 +75,8 @@ const Body = () => {
         </button>
       </div>
 
-      {/* Restaurant Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* Restaurant Cards Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {listOfRestaurant.map((restaurant) => (
           <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
             <RestaurantCard resData={restaurant} />

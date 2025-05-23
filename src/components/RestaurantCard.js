@@ -11,33 +11,30 @@ const RestaurantCard = ({ resData }) => {
   } = resData.info;
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out h-80 w-72 flex flex-col">
+    <div className="bg-white rounded-lg shadow hover:shadow-lg transition-transform transform hover:scale-105 duration-200 ease-in-out w-full h-full flex flex-col">
       {/* Restaurant Image */}
       <img
-        className="w-full h-36 object-cover"
-        alt="restaurant-logo"
+        className="w-full h-40 object-cover rounded-t-lg"
+        alt={`${name} restaurant`}
         src={CDN_URL + cloudinaryImageId}
       />
 
       {/* Restaurant Info */}
       <div className="flex flex-col justify-between flex-grow p-4">
-        {/* Name */}
-        <h3 className="text-lg font-semibold text-gray-800 truncate">{name}</h3>
+        <h3 className="text-base font-semibold text-gray-800 truncate">{name}</h3>
 
-        {/* Rating & Cuisines */}
         <div className="mt-2">
-          <div className="text-sm text-gray-600 flex items-center gap-2 mb-1">
+          <div className="text-xs text-gray-600 flex items-center gap-2 mb-1">
             <span className="text-yellow-500 font-semibold">{avgRating} ⭐</span>
             <span className="text-gray-400">|</span>
             <span>{deliveryTime} min</span>
           </div>
-          <div className="text-sm text-gray-500 line-clamp-2">
+          <p className="text-xs text-gray-500 line-clamp-2">
             {cuisines.join(", ")}
-          </div>
+          </p>
         </div>
 
-        {/* Cost */}
-        <div className="mt-auto text-sm text-gray-600 pt-2">
+        <div className="mt-auto pt-2 text-xs font-medium text-gray-600">
           {costForTwo}
         </div>
       </div>
