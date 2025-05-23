@@ -9,10 +9,10 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Grocery from "./components/Grocery";
 import RestaurantMenu from "./components/RestaurantMenu";
-// import Error from "./components/Error";
 
 
 const Grocery = lazy(() => import("./components/Error"));
+
 
 
 const AppLayout = () => {
@@ -23,6 +23,8 @@ const AppLayout = () => {
     </div>
   );
 };
+
+
 
 //  ✅  here we are creating routing configuration
 const appRouter = createBrowserRouter([
@@ -56,6 +58,7 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
   },
 ]);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter} />);

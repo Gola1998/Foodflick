@@ -9,9 +9,11 @@ class About extends Component {
     console.log("Parent Constructor");
   }
 
+  
   componentDidMount(){
     console.log("Parent Component Did Mount");
   }
+
 
   render() {
     console.log("Parent Render");

@@ -22,9 +22,12 @@
   },
   "homepage": "https://github.com/Gola1998/Foodflick#readme",
   "devDependencies": {
-    "parcel": "^2.14.4"
+    "parcel": "^2.15.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^6.16.0"
