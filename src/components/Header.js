@@ -1,31 +1,63 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+// import logo from '../assets/logo.png';
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "./UserContext";
+
+
 
 export const Header = () => {
   const [btnNameReact, setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
+  // const data = useContext(UserContext);
+  // console.log("User Context",data);
 
+  const {loggedInUser} = useContext(UserContext);
+  
   return (
     <div className="w-full bg-white shadow-md px-4 py-3 flex flex-wrap items-center justify-between sticky top-0 z-50">
       {/* Logo */}
       <div className="flex-shrink-0 mb-2 sm:mb-0">
         <Link to="/">
-          <img className="w-24 md:w-28" src={LOGO_URL} alt="Logo" />
+          {/* <img className="w-24 md:w-28" src={logo} alt="Food Flick Logo" /> */}
+          <img className="w-24 md:w-28" src={LOGO_URL} alt="Food Flick Logo" />
         </Link>
       </div>
+
 
       {/* Navigation + Button + Online Status */}
       <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base font-semibold text-gray-800">
         {/* Navigation Links */}
         <div className="flex flex-wrap items-center gap-4">
-          <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/">Home</Link>
-          <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/about">About</Link>
-          <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/contact">Contact</Link>
+          <Link
+            className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition"
+            to="/"
+          >
+            Home
+          </Link>
+          <Link
+            className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition"
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition"
+            to="/contact"
+          >
+            Contact
+          </Link>
           {/* <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/grocery">Grocery</Link> */}
-          <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/cart">Cart</Link>
+          <Link
+            className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition"
+            to="/cart"
+          >
+            Cart
+          </Link>
         </div>
+
+
 
         {/* Login Button */}
         <button
@@ -36,6 +68,11 @@ export const Header = () => {
         >
           {btnNameReact}
         </button>
+        <ul>
+          <li className="px-4 font-bold">{loggedInUser}</li>
+        </ul>
+
+        
 
         {/* Online Status */}
         <span

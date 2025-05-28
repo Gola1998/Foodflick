@@ -9,6 +9,7 @@ const RestaurantCard = ({ resData }) => {
     costForTwo,
     cloudinaryImageId,
   } = resData.info;
+  
 
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-lg transition-transform transform hover:scale-105 duration-200 ease-in-out w-full h-full flex flex-col">

@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Footer from "./Footer";
 
+
+
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+
 
   useEffect(() => {
     fetchData();
@@ -29,6 +32,8 @@ const Body = () => {
     setAllRestaurants(restaurants);
   };
 
+
+
   const onlineStatus = useOnlineStatus();
   if (!onlineStatus) {
     return (
@@ -37,6 +42,7 @@ const Body = () => {
       </h1>
     );
   }
+
 
   return listOfRestaurant.length === 0 ? (
     <Shimmer />
@@ -78,7 +84,10 @@ const Body = () => {
       {/* Restaurant Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
         {listOfRestaurant.map((restaurant) => (
-          <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}>
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurant/" + restaurant.info.id}
+          >
             <RestaurantCard resData={restaurant} />
           </Link>
         ))}
