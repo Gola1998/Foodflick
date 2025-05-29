@@ -1,32 +1,26 @@
-import { Component } from "react";
-import User from "./User";
-import UserClass from "./UserClass";
+import React from 'react';
 
-class About extends Component {
-  constructor(props) {
-    super(props);
+const About = () => {
+  return (
+    <div className="max-w-3xl mx-auto px-4 py-16 text-center text-gray-800">
+      <h1 className="text-3xl font-bold text-orange-500 mb-4">About FoodFlick</h1>
+      
+      <p className="text-gray-600 mb-10">
+        FoodFlick is a food ordering platform that offers a wide variety of cuisines from your favorite local restaurants — delivered fast and fresh.
+      </p>
 
-    console.log("Parent Constructor");
-  }
-
-  
-  componentDidMount(){
-    console.log("Parent Component Did Mount");
-  }
-
-
-  render() {
-    console.log("Parent Render");
-    return (
-      <div>
-        <h1>About</h1>
-        <h2>This is Namaste react series</h2>
-        <User name={"Gaurav Gola(function)"} />
-        <UserClass name={"First"} location={"Delhi"} />
-        <UserClass name={"Second"} location={"USA"} />
+      <div className="space-y-6">
+        <p>🍕 Order from top-rated restaurants</p>
+        <p>🍜 Explore multiple cuisines in one place</p>
+        <p>🚴‍♂️ Fast and reliable delivery</p>
+        <p>📲 Simple and user-friendly app</p>
       </div>
-    );
-  }
-}
+
+      <p className="mt-10 text-gray-700">
+        Craving something? <span className="text-orange-500 font-semibold">Start your order now!</span>
+      </p>
+    </div>
+  );
+};
 
 export default About;

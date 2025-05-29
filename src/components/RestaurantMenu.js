@@ -14,34 +14,29 @@ const RestaurantMenu = () => {
 
   const regularCards =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
-  console.log("Regular cards - 1st", regularCards);
-
-  const itemCards = regularCards
-    .flatMap((card) => card.card?.card?.itemCards || [])
-    .filter(Boolean);
 
   const categories = regularCards.filter(
     (c) =>
-      c.card?.card?.["@type"] ==
+      c.card?.card?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
   );
-  console.log("categories-2nd", categories);
 
   return (
-    <div>
+    <div className="px-4 md:px-10 py-6 max-w-5xl mx-auto">
       {/* Restaurant Info Section */}
-      <div className="text-center">
-        <h1 className="font-bold my-10 text-2xl">{name}</h1>
-        <p className="font-bold text-lg">
-          {cuisines?.join(", ")} - {costForTwoMessage}
+      <div className="text-center mb-8">
+        <h1 className="font-extrabold text-3xl text-gray-800">{name}</h1>
+        <p className="text-gray-600 mt-2 text-lg">
+          {cuisines?.join(", ")} • {costForTwoMessage}
         </p>
-        {/* categories accordions*/}
+      </div>
+
+      {/* Category Accordions */}
+      <div>
         {categories.map((category) => (
           <RestaurantCategory
             key={category?.card?.card?.title}
             data={category?.card?.card}
-
-            // showitems={false}
           />
         ))}
       </div>

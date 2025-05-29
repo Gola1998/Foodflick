@@ -1,29 +1,38 @@
 import { CDN_URL } from "../utils/constants";
 
 const ItemList = ({ items }) => {
-  console.log("items-4th", items);
   return (
     <div>
-      {items.map((item) => (
-        <div
-          key={item.card.info.id}
-          className="m-2 p-2 border-gray-200 border-b-2 text-left flex justify-between"
-        >
-          <div className="w-9/12">
-            <div className="py-2">
-              <span>{item.card.info.name} - </span>
-              <span>₹{item.card.info.price / 100}</span>
+      {items.map((item) => {
+        const { id, name, description, price, imageId } = item.card.info;
+        return (
+          <div
+            key={id}
+            className="flex flex-col md:flex-row justify-between gap-4 py-4 border-b border-gray-200"
+          >
+            {/* Left Info */}
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold">{name}</h3>
+              <p className="text-gray-600 text-sm mt-1">{description}</p>
+              <p className="text-md font-medium mt-2">₹{price / 100}</p>
             </div>
-            <p className="text-sm">{item.card.info.description}</p>
-          </div>
-          <div className="w-3/12 p-4">
-            <div className="absolute">
-              <button className="p-1 bg-white shadow-sm">Add +</button>
+
+            {/* Right Image + Button */}
+            <div className="relative md:w-40 w-full">
+              {imageId && (
+                <img
+                  src={CDN_URL + imageId}
+                  alt={name}
+                  className="rounded-lg w-full h-24 object-cover"
+                />
+              )}
+              <button className="absolute bottom-2 right-2 bg-white border border-gray-300 px-3 py-1 rounded text-sm shadow-md hover:bg-gray-50">
+                Add +
+              </button>
             </div>
-            <img src={CDN_URL + item.card.info.imageId} className="w-28 h-20" />
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };
