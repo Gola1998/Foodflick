@@ -45,3 +45,14 @@ import {Component} from "path";
 - Slice (cartslice)
 - dispatch(action)
 - Selector
+
+# ✅ types of testing (developer)
+- Unit testing
+- Integration Testing
+- End to End Testing - e2e testing
+
+# ✅ Setting up Testing in our app
+- install React Testing Library
+- install jest
+- install babel dependencies
+- configure babel
