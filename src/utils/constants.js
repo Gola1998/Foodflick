@@ -6,3 +6,6 @@ export const LOGO_URL =
 
 export const MENU_API = 
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.7192604&lng=77.173582&restaurantId=";
+
+export const WEBSITE_LOGO = 
+"https://img.freepik.com/premium-vector/logo-food-company-that-says-sun-sun-sunflower_917213-253424.jpg?semt=ais_hybrid&w=740";

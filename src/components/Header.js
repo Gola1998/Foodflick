@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "./UserContext";
+import { useSelector } from "react-redux";
 
 
 
@@ -14,6 +15,9 @@ export const Header = () => {
   // console.log("User Context",data);
 
   const {loggedInUser} = useContext(UserContext);
+
+  // Subscribing to the store using a Selector
+  const cartItems = useSelector((store) => store.cart.items);
   
   return (
     <div className="w-full bg-white shadow-md px-4 py-3 flex flex-wrap items-center justify-between sticky top-0 z-50">
@@ -51,9 +55,9 @@ export const Header = () => {
           {/* <Link className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition" to="/grocery">Grocery</Link> */}
           <Link
             className="px-2 py-1 rounded hover:bg-orange-500 hover:text-white transition"
-            to="/cart"
+            to="/cart" 
           >
-            Cart
+            Cart ({cartItems.length} items)
           </Link>
         </div>
 
