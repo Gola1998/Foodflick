@@ -72,9 +72,7 @@ export const Header = () => {
         >
           {btnNameReact}
         </button>
-        <ul>
-          <li className="px-4 font-bold">{loggedInUser}</li>
-        </ul>
+        {/*  */}
 
         
 
