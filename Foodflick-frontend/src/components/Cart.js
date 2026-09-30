@@ -6,6 +6,8 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
+  const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+
   const handleClearCart = () => {
     dispatch(clearCart());
   };
@@ -25,7 +27,7 @@ const Cart = () => {
 
           <div className="flex justify-between items-center mt-6">
             <h2 className="text-xl font-semibold text-gray-700">
-              Total Items: <span className="font-bold">{cartItems.length}</span>
+              Total ({cartItems.length} items): <span className="font-bold">₹{total}</span>
             </h2>
 
             <button

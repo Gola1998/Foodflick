@@ -7,13 +7,13 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //  ✅ RouterProvider actually provide this routing configuration to our app
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Grocery from "./components/Grocery";
-import RestaurantMenu from "./components/RestaurantMenu";
+import DishDetail from "./components/DishDetail";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import ErrorPage from "./components/Error";
 
-const Grocery = lazy(() => import("./components/Error"));
+const Grocery = lazy(() => import("./components/Grocery"));
 
 
 
@@ -59,15 +59,15 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/restaurant/:resId",
-        element: <RestaurantMenu />,
+        path: "/dish/:dishId",
+        element: <DishDetail />,
       },
       {
         path: "/cart",
         element: <Cart />,
       },
     ],
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
   },
 ]);
 
